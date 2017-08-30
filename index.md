@@ -42,8 +42,7 @@
             great opportunities for you if you are in any computing field. I am currently 
             an Intern at OnePath and I graduate this Fall!.</p>
             <p><a href="http://it4203.jackzheng.net">Professor Link</a>
-              <p><a href="">Assignment 1</a>
-                <p><a href="">Assignment 2</a>
+             
 
             
           </div>
@@ -70,6 +69,3 @@
     <!-- Custom JavaScript for this theme -->
     <script src="js/scrolling-nav.js"></script>
 
-  </body>
-
-</html>
