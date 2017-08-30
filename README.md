@@ -1,37 +1,99 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
 
-You can use the [editor on GitHub](https://github.com/denzi36/DenzelMaxey/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+  <head>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-### Markdown
+    <title>Denzel Maxey IT 4203</title>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+  
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-```markdown
-Syntax highlighted code block
+    
+    <link href="css/scrolling-nav.css" rel="stylesheet">
 
-# Header 1
-## Header 2
-### Header 3
+  </head>
 
-- Bulleted
-- List
+  <body id="page-top">
 
-1. Numbered
-2. List
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="http://it4203.jackzheng.net">Class</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">KSU</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+         </ul>
+        </div>
+        
+      </div>
+    </nav>
+  
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        <h1>Welcome </h1>
+        <p class="lead"></p>
+      </div>
+    </header>
 
-**Bold** and _Italic_ and `Code` text
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1>Denzel Maxey Web Page</h1>
+            <p class="lead">Welcome to my homepage!.</p>
+            <p> My name is Denzel Maxey. I am a Senior here at Kennesaw State University. I 
+            originally attended Southern Polytechnic State University 
+            before the merge. My major is Information Technology and so far I love the 
+            major and excited for my future career. I love sports and hanging out with friends outside of 
+            my job and school work. I am currently in the AITP 
+            organization and I encourage many of you to join. It provides 
+            great opportunities for you if you are in any computing field. I am currently 
+            an Intern at OnePath and I graduate this Fall!.</p>
+            <p><a href="http://it4203.jackzheng.net">Professor Link</a>
+              <p><a href="">Assignment 1</a>
+                <p><a href="">Assignment 2</a>
 
-[Link](url) and ![Image](src)
-```
+            
+          </div>
+        </div>
+      </div>
+    </section>
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Denzel Maxey</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 
-### Jekyll Themes
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/denzi36/DenzelMaxey/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-### Support or Contact
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+  </body>
+
+</html>
