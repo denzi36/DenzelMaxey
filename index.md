@@ -2,10 +2,7 @@
 
   <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+
 
     <title>Denzel Maxey IT 4203</title>
 
@@ -40,7 +37,7 @@
             my job and school work. I am currently in the AITP 
             organization and I encourage many of you to join. It provides 
             great opportunities for you if you are in any computing field. I am currently 
-            an Intern at OnePath and I graduate this Fall!.</p>
+            an Intern at OnePath and I graduate this Fall!</p>
             <p><a href="http://it4203.jackzheng.net">Professor Link</a>
              
 
