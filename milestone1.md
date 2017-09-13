@@ -1,3 +1,17 @@
+<title>Denzel Maxey IT 4203</title>
+
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link href="css/scrolling-nav.css" rel="stylesheet">
+<header class="bg-primary text-white">
+  <div class="container text-center">
+    <h1>Welcome to</h1>
+    <p class="lead"></p>
+  </div>
+</header>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -62,3 +76,33 @@
 </script>
 </body>
 </html>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Denzel Maxey</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/popper/popper.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom JavaScript for this theme -->
+<script src="js/scrolling-nav.js"></script>
+© 2017 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
