@@ -41,7 +41,25 @@
             <p><a href="http://it4203.jackzheng.net">Professor Link</a>
              
 
-            
+
+		<section>
+			<h2 id="milestone1"><a href="milestone1.html">Milestone 1 - JSON</a></h2>
+		</section>
+		<section>
+			<h2 id="milestone2"><a href="milestone2.html">Milestone 2 - Web API</a></h2>
+		</section>
+		<section>
+			<h2 id="milestone3"><a href="milestone3.html">Milestone 3</a></h2>
+		</section>
+		<section>
+			<h2 id="milestone4"><a href="/M4/milestone4.html">Milestone 4</a></h2>
+		</section>
+	
+		<section>
+			<h2 id="contact">Contact Email</h2>
+			<p class="email">dmaxey1@students.kennesaw.edu</p>	
+		</section>
+	</main>    
       
 
     <!-- Footer -->
