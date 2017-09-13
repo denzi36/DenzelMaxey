@@ -1,5 +1,4 @@
-<!doctype html>
-<html>
+<md>
 <head>
 	<meta charset="utf-8">
 	<title>Milestone 1 - Part 1</title>
@@ -62,4 +61,4 @@
         
 </script>
 </body>
-</html>
+</md>
