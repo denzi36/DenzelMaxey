@@ -43,7 +43,7 @@
 
 
 		<section>
-			<h2 id="milestone1"><a href="milestone1.html">Milestone 1</a></h2>
+			<h2 id="milestone1"><a href="milestone1.md">Milestone 1</a></h2>
 		</section>
 		<section>
 			<h2 id="milestone2"><a href="milestone2.html">Milestone 2</a></h2>
