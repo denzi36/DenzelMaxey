@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h1>Denzel Maxey's Web Page</h1>
-            <p class="lead">Welcome to my homepage!</p>
+          
             <p> My name is Denzel Maxey. I am a Senior here at Kennesaw State University. I 
             originally attended Southern Polytechnic State University 
             before the merge. My major is Information Technology and so far I love the 
