@@ -46,13 +46,13 @@
 			<h2 id="milestone1"><a href="milestone1.md">Milestone 1</a></h2>
 		</section>
 		<section>
-			<h2 id="milestone2"><a href="milestone2.html">Milestone 2</a></h2>
+			<h2 id="milestone2"><a href="milestone2.md">Milestone 2</a></h2>
 		</section>
 		<section>
-			<h2 id="milestone3"><a href="milestone3.html">Milestone 3</a></h2>
+			<h2 id="milestone3"><a href="milestone3.md">Milestone 3</a></h2>
 		</section>
 		<section>
-			<h2 id="milestone4"><a href="/M4/milestone4.html">Milestone 4</a></h2>
+			<h2 id="milestone4"><a href="/M4/milestone4.md">Milestone 4</a></h2>
 		</section>
 	
 		<section>
