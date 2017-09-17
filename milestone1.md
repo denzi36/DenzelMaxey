@@ -1,44 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>GitHub &amp; BitBucket HTML Preview</title>
-	<style>
-	body {
-		font: 12px 'Helvetica Neue', Helvetica, Arial, freesans, clean, sans-serif;
-		color: #333;
+<title>Milestone 1 Part 1</title>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<style>
+
+
+#header {
+		background-color: #cbc9c9;
+		width: 90%;
+		margin: 0 auto;
+		height: 80%;
+		margin-top: -10px;
 	}
-	h1 {
-		font-size: 20px;
+	
+	.previousPage {
+		color: #000000;
+		font-style: bold;
+		float: left;
+		margin-top: -30px;
+		margin-left: 10px;
 	}
+	
 	a {
-		color: #666;
+		color: #000000;
+		font-style: bold;
 	}
-	form {
-		padding: 20px; 
+	
+	a:visited {
+		color: #ffffff;
+	}
+	
+	a:hover {
+		color: red;
+	}
+	
+	.heading-text {
 		text-align: center;
+		padding-top: 20px;
+		color: #000000;
 	}
-	strong {
-		color: #333;
-		background-color: #FAFFA6;
-		padding: 0.1em;
+		
+	#books {
+		background-color: #cbc9c9;
+		margin-top: 15px;
+		padding-bottom: 30px;
+		width: 90%;
+		margin: 0 auto;	
+		border: 2px solid red;
 	}
-	#footer {
-		margin: 20px 0;
-		font-size: 10px;
-		color: #666;
+	
+	img {
+		float: left;
+		margin-left: 30px;
+		margin-right: 20px;
+		border: 2px solid black;
+		width: 204px;
+		height: 250px;
+		margin-bottom: 30px;
+	}
+	
+	h2 {
+		margin-top: -5px;
+	}
+	
+	h4 {
+		font-style: italic;
+		margin-top: -15px;
+	}	
+	
+	.description {
+		margin-right: 80px;
 	}
 	</style>
-</head>
-<body>
-	<form id="previewform" action="">
-		<h1>GitHub &amp; BitBucket HTML Preview</h1>
-		<p>Enter URL of the HTML file to preview: <input type="url" id="file" value="" placeholder="e.g. https://github.com/user/repo/blob/master/index.html" size="60" autofocus> <input type="submit" value="&raquo;"></p>
-		<p>or prepend to the URL: <strong>http://htmlpreview.github.io/?</strong>https://github.com/twbs/bootstrap/blob/gh-pages/2.3.2/index.html</p>
-		<p>or use this bookmarklet while browsing GitHub or BitBucket: <a href="javascript:void('http://htmlpreview.github.io/'==window.location?alert('Drag me to your bookmarks bar!'):window.location='http://htmlpreview.github.io/?'+window.location)"><strong>HTMLPreview</strong></a></p>
-		<p id="footer">Developed by <a href="https://github.com/niutech">niu tech</a> | Contribute on <a href="https://github.com/htmlpreview/htmlpreview.github.com">GitHub</a></p>
-	</form>
-	<script src="/htmlpreview.min.js"></script>
-	<script>HTMLPreview.init();</script>
-</body>
+			<script>
+			$.getJSON('http://it-ebooks-api.info/v1/search/modern%20web', function(data) {
+			$.each(data.Books, function(){
+				$('<br><div class="results"></div>').append(
+				
+						'<div id="books">' + '<br><img src="' + this.Image + '">' + '<p><h2>' + this.Title +  ':</h2>' + '<h4>'+ this.SubTitle + '</h4></p>' + 
+						'<p><b>ID Number:&nbsp;&nbsp;</b>' + this.ID + '</p>' + '<p ><b>ISBN:&nbsp;&nbsp;</b>' + this.isbn + '</p> ' + 
+						'<p class="description"><b>Description:&nbsp;&nbsp;</b><em>' + this.Description + '</em></p>' + '<br></div>'
+					
+				).appendTo("body");
+			
+			})
+		
+		
+		});
+	</script>
+	</head>
+	
+	<body>
+		
+<div id = "header">
+		<h1 class="heading-text">Milestone 1 Part 1</h1>
+		<p class="previousPage"><a href="/index.html">Return to Main Page</a></p>
+		</div>				
+			
+	</body>
 </html>
