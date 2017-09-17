@@ -1,102 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Milestone 1 Part 1</title>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<style>
-
-
-#header {
-		background-color: #74AFAD;
-		width: 90%;
-		margin: 0 auto;
-		height: 80%;
-		margin-top: -10px;
-	}
-	
-	.previousPage {
-		color: #000000;
-		font-style: bold;
-		float: left;
-		margin-top: -30px;
-		margin-left: 10px;
-	}
-	
-	a {
-		color: #000000;
-		font-style: bold;
-	}
-	
-	a:visited {
-		color: #ffffff;
-	}
-	
-	a:hover {
-		color: yellow;
-	}
-	
-	.heading-text {
-		text-align: center;
-		padding-top: 20px;
-		color: #000000;
-	}
-		
-	#books {
-		background-color: #cbc9c9;
-		margin-top: 15px;
-		padding-bottom: 30px;
-		width: 90%;
-		margin: 0 auto;	
-		border: 2px solid red;
-	}
-	
-	img {
-		float: left;
-		margin-left: 30px;
-		margin-right: 20px;
-		border: 2px solid black;
-		width: 204px;
-		height: 250px;
-		margin-bottom: 30px;
-	}
-	
-	h2 {
-		margin-top: -5px;
-	}
-	
-	h4 {
-		font-style: italic;
-		margin-top: -15px;
-	}	
-	
-	.description {
-		margin-right: 80px;
-	}
-	</style>
-			<script>
-			$.getJSON('http://it-ebooks-api.info/v1/search/modern%20web', function(data) {
-			$.each(data.Books, function(){
-				$('<br><div class="results"></div>').append(
-				
-						'<div id="books">' + '<br><img src="' + this.Image + '">' + '<p><h2>' + this.Title +  ':</h2>' + '<h4>'+ this.SubTitle + '</h4></p>' + 
-						'<p><b>ID Number:&nbsp;&nbsp;</b>' + this.ID + '</p>' + '<p ><b>ISBN:&nbsp;&nbsp;</b>' + this.isbn + '</p> ' + 
-						'<p class="description"><b>Description:&nbsp;&nbsp;</b><em>' + this.Description + '</em></p>' + '<br></div>'
-					
-				).appendTo("body");
-			
-			})
-		
-		
-		});
-	</script>
+	<head>
+		<link rel="stylesheet"
+		type = "text/css"
+		href= "cssSheet.css" />
+		<title>Milestone 1 Part 1</title>
+		<meta charset="UTF-8" />
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous">	
+		</script>
 	</head>
-	
 	<body>
+	
 		
-<div id = "header">
-		<h1 class="heading-text">Milestone 1 Part 1</h1>
-		<p class="previousPage"><a href="https://denzi36.github.io/IT-4203/">Return to Main Page</a></p>
-		</div>				
 			
+			<h1>Milestone 1 Part 1</h1>
+		
+			<div class="navBar">
+				<a href ="index.html">Home</a>
+				<a href="milestone1.html">Milestone 1</a>
+				<a href="milestone2.html">Milestone 2</a>
+				<a href="milestone3.html">Milestone 3</a>
+				<a href="milestone4.html">Milestone 4</a>
+				<a href="http://it4203.jackzheng.net">Teacher's Homepage</a>
+			</div>
+		
+		
+		<div class= "mainContent" id = "mainContent" style = "background-color:	#D3D3D3;margin-top: 0px">
+		
+			<script>
+			
+			$(document).ready(function(){
+
+				$.getJSON("http://it-ebooks-api.info/v1/search/modern%20web", function(json){
+
+					$.each(json.Books, function(){
+
+						$('#mainContent').append('<h2 style = "border-top: 1px solid">' + "Title: "+ this.Title + '</h2>'            			   
+							+ '<p>' + "<b>Subtitle: </b>"  + this.SubTitle + '</p>'+ '<img src="' + this.Image + '" style = "float: left; margin-bottom: 10px; margin-right: 10px"">'
+							+ '<p>' + "<b>Description: </b>"  + this.Description + '</p>' + '<p style = "clear: both">' + "<b>ISBN: </b>"  + this.isbn + '</p>');
+					});
+				}); 
+			});
+        
+			</script>
+		</div>
+		
+		
+		
 	</body>
 </html>
