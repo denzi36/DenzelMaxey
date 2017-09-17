@@ -1,115 +1,64 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-
-    <title>Milestone 1 Part 2</title>
-    <style>
-   body {
-			background-color: #d4d4d4;
-			font-family: sans-serif;
-		}
-		
-		#header {
-			background-color: #cbc9c9;
-			width: 92%;
-			margin: 0 auto;
-			height: 80%;
-			margin-top: -10px;
-		}
-		
-		.previousPage {
-			color: #000000;
-			font-style: bold;
-			float: left;
-			margin-top: -30px;
-			margin-left: 10px;
-		}
-		
-		a {
-			color: #ffffff;
-			font-style: bold;
-		}
-		
-		a:visited {
-			color: #ffffff;
-		}
-		
-		a:hover {
-			color: red;
-		}
-		
-		.heading-text {
-			text-align: center;
-			padding-top: 20px;
-			color: #000000;
-		}
-		
-		h2 {
-		margin-top: -5px;
-	}
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet"
+		type = "text/css"
+		href= "cssSheet.css" />
+		<title>Milestone 1 Part 2</title>
+		<meta charset="UTF-8" />
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous">	
+		</script>
+	</head>
+	<body>
 	
-	h4 {
-		font-style: italic;
-		margin-top: -15px;
-	}	
-	
-	.description {
-		margin-right: 80px;
-	}
 		
-        
-        .bookpadding{padding-left: 10px;}
-        .title{color:red; font-size: 30px; line-height: 1%}
-        .subtitle{color:red; font-size: 20px; border-bottom-style: solid}
-        .image{float: left; margin: 0px 10px 0px 0px}
-        .headers{}
-        .paragraphs{padding-left: 10px; line-height: 110%}
-        .paragraphs2{padding-left: 10px; line-height: 110%; border-bottom-style: solid; font-size: 20px; color: red;}
-    </style>
-
-    <script type = "text/javascript" 
-         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script type = "text/javascript" language = "javascript">
-     $(document).ready(function() {
 			
-               $.getJSON('https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC', function(json) {
-
-                   $('#book').html('<p class="title">' + json.volumeInfo.title + '</p>');
-                   $('#book').append('<p class="subtitle">' + json.volumeInfo.subtitle + '</p>');
-                   $('#book').append("<img class='image' src=" + json.volumeInfo.imageLinks.thumbnail + '>');
-                   $('#book').append('<p class="paragraphs">' + json.volumeInfo.description + '</p>');
-                   $('#book').append('<p class="paragraphs"> Authors: ' + json.volumeInfo.authors + '</p>');
-                   $('#book').append('<p class="paragraphs2"> Other Information </p>');
-                   $('#book').append('<p class="paragraphs"> ID: ' + json.id + '</p>');
-                   $('#book').append('<p class="paragraphs"> Kind: ' + json.kind + '</p>');
-                   $('#book').append('<p class="paragraphs"> Etag: ' + json.etag + '</p>');
-                   $('#book').append('<p class="paragraphs"> Publisher: ' + json.volumeInfo.publisher + '</p>');
-                   $('#book').append('<p class="paragraphs"> Published Date: ' + json.volumeInfo.publisedDate+ '</p>');
-                   $('#book').append('<p class="paragraphs"> Industry IdentType: ' + json.volumeInfo.industryIdentifiers[0].type + '</p>');
-                   $('#book').append('<p class="paragraphs"> PageCount: ' + json.volumeInfo.pageCount + '</p>');
-                   $('#book').append('<p class="paragraphs"> PrintType: ' + json.volumeInfo.printType + '</p>');
-                   $('#book').append('<p class="paragraphs"> AverageRating: ' + json.volumeInfo.averageRating + '</p>');
-                   $('#book').append('<p class="paragraphs"> RatingCount: ' + json.volumeInfo.ratingsCount + '</p>');
-                   $('#book').append('<p class="paragraphs"> MaturityRating: ' + json.volumeInfo.maturityRating + '</p>');
-                   $('#book').append('<p class="paragraphs"> ContentVersion: ' + json.volumeInfo.contentVersion + '</p>');
-                   $('#book').append('<p class="paragraphs"> Language ' + json.volumeInfo.language + '</p>');
-            });
-				
-         });
-      
-  </script>
-    
-</head>
-
-<body>
-    <div id = "header">
-		<h1 class="heading-text">Milestone 1 Part 2</h1>
-		<p class="previousPage"><a href="/index.html">Return to Main Menu</a></p>
-		</div>	
+			<h1>Milestone 1 Part 2</h1>
 		
-		<div id="book"></div>
-</body>
+			<div class="navBar">
+				<a href ="index.html">Home</a>
+				<a href="milestone1.html">Milestone 1</a>
+				<a href="milestone2.html">Milestone 2</a>
+				<a href="milestone3.html">Milestone 3</a>
+				<a href="milestone4.html">Milestone 4</a>
+				<a href="http://it4203.jackzheng.net">Teacher's Homepage</a>
+			</div>
+		
+		
+		<div class= "mainContent" id = "mainContent" style = "background-color:	#D3D3D3; margin-top: 0px">
+		
+			<script>
+			
+			$(document).ready(function(){
 
+				$.getJSON("https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC", function(json){
+
+						json = json.volumeInfo;
+
+						$('#mainContent').html('<h2>' + "Title: "+ '<a href = "' + json.infoLink + '">' + json.title + '</a></h2>'  			   
+							+ '<p style = "border-bottom: 1px solid">' + "<b>Subtitle: </b>"  + json.subtitle + '</p>' +'<img src="' + json.imageLinks.small 
+							+ '" style = "float: left; margin-bottom: 10px; margin-right: 10px">' + '<p>' + "<b> Description: </b>" + json.description + '</p>'
+							+ '<p style = "border-top: 1px solid; clear: both">' + "<b>Author: </b>" + json.authors + '</p>' + '<p>' + "<b> Publisher: </b>" + json.publisher + '</p>'
+							+ '<p>' + "<b>Published Date: </b>" + json.publishedDate + '</p>'
+							+ '<p>' + "<b>ISBN_10: </b>" + json.industryIdentifiers[0].identifier + '</p>'+ '<p>' + "<b>ISBN_13: </B>" + json.industryIdentifiers[1].identifier + '</p>'
+							+ '<p>' + "<b>Number of pages: </b>" + json.printedPageCount + '</p>' + '<p>' + "<b>Rating: </b>" + json.averageRating + " out of 5" + '</p>'
+							+ '<p>' + "<b>Rating Count: </b>" + json.ratingsCount + '</p>' + '<a href = "' + json.previewLink + '">' + "Preview" + '</a>'  
+						
+							
+							
+							
+							
+							);
+						
+				}); 
+			});
+			</script>
+		</div>
+		
+		
+		
+	</body>
 </html>
