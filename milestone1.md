@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Milestone 1 - Part 1</title>
+	<title>Milestone 1</title>
 	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -42,7 +42,7 @@
 	<div id="wrapper"></div>
 <script>
 
-        $.getJSON("http://it-ebooks-api.info/v1/search/modern%20web", function(json){
+        $.getJSON("it-ebooks-search.json", function(json){
 
             	$.each(json.Books, function(){
 
