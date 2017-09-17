@@ -1,64 +1,44 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Milestone 1</title>
-	<link rel="stylesheet" type="text/css" href="normalize.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<style type="text/css">
-		#header {
-			background: #184a4a;
-			color: #fff;
-			padding: 1px 5%;
-			box-shadow: 0 1px 3px #555;
-			margin: auto;
-			text-align: center;
-}
-		#book{
-			width: 80%;
-			padding: 1em;
-			margin-bottom: 3em;
-			margin: 0 auto;
-			height: 100%;
-			border-bottom-style: solid;
-			border-bottom-width: 1px;
-		}
-		#info{
-			float: right;
-			width: 60%;
-			padding: 1em;
-
-		}
-		#pic{
-			float: left;
-			width: 20%;
-			clear: both;
-			padding: 1em;
-		}
+	<title>GitHub &amp; BitBucket HTML Preview</title>
+	<style>
+	body {
+		font: 12px 'Helvetica Neue', Helvetica, Arial, freesans, clean, sans-serif;
+		color: #333;
+	}
+	h1 {
+		font-size: 20px;
+	}
+	a {
+		color: #666;
+	}
+	form {
+		padding: 20px; 
+		text-align: center;
+	}
+	strong {
+		color: #333;
+		background-color: #FAFFA6;
+		padding: 0.1em;
+	}
+	#footer {
+		margin: 20px 0;
+		font-size: 10px;
+		color: #666;
+	}
 	</style>
 </head>
 <body>
-	<div id="header"><h3>Milestone 1 - Part 1</h3></div>
-	<div id="wrapper"></div>
-<script>
-
-        $.getJSON("it-ebooks-search.json", function(json){
-
-            	$.each(json.Books, function(){
-
-            		$('<div class="clearfix" id="book"></div>').append('<img src="' + this.Image + '" id="pic">' 
-            			+ '<div id="info">' 
-            			+ '<p>' + "<b>Title: </b>" + this.Title + '</p>' 
-            			+ '<p>' + "<b>Subtitle: </b>"  + this.SubTitle + '</p>' 
-            			+ '<p>' + "<b>Description: </b>"  + this.Description + '</p>' 
-            			+ '<p>' + "<b>ID: </b>"  + this.ID + '</p>' 
-            			+ '<p>' + "<b>ISBN: </b>"  + this.isbn + '</p>' 
-            			+ '</div>').appendTo("#wrapper");
-
-            	});
-
-        }); 
-        
-</script>
+	<form id="previewform" action="">
+		<h1>GitHub &amp; BitBucket HTML Preview</h1>
+		<p>Enter URL of the HTML file to preview: <input type="url" id="file" value="" placeholder="e.g. https://github.com/user/repo/blob/master/index.html" size="60" autofocus> <input type="submit" value="&raquo;"></p>
+		<p>or prepend to the URL: <strong>http://htmlpreview.github.io/?</strong>https://github.com/twbs/bootstrap/blob/gh-pages/2.3.2/index.html</p>
+		<p>or use this bookmarklet while browsing GitHub or BitBucket: <a href="javascript:void('http://htmlpreview.github.io/'==window.location?alert('Drag me to your bookmarks bar!'):window.location='http://htmlpreview.github.io/?'+window.location)"><strong>HTMLPreview</strong></a></p>
+		<p id="footer">Developed by <a href="https://github.com/niutech">niu tech</a> | Contribute on <a href="https://github.com/htmlpreview/htmlpreview.github.com">GitHub</a></p>
+	</form>
+	<script src="/htmlpreview.min.js"></script>
+	<script>HTMLPreview.init();</script>
 </body>
 </html>
