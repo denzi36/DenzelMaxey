@@ -1,1 +1,114 @@
+<html>
+<head>
+	<title>Milestone 2</title>
+	<link rel="icon" href="/old/favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<style>
+		body {
+			background-color: #558C89;
+			font-family: Trebuchet MS;
+		}
+	       body,h1,h2,h3,h4,h5,h6 {font-family: "Trebuchet MS"}
+	       h1,button {font-family: "Open+Sans", Trebuchet MS}
+		
+	       .background{color:#558C89;}
+	       .bookpadding{padding-left: 10px;}
+	       .title{color:#D9853B; font-size: 30px; line-height: 110%; clear: left; border-top-style: solid;}
+	       .subtitle{color:#D9853B; font-size: 20px; border-bottom-style: solid;}
+	       .image{float: left; margin: 0px 10px 40px 10px; }
+	       .headers{}
+	       .paragraphs{line-height: 110%;}
+	</style>
+	<script> //source for the following script https://stackoverflow.com/questions/895171/prevent-users-from-submitting-a-form-by-hitting-enter
+			$(document).ready(function() {
+		  $(window).keydown(function(event){
+			if(event.keyCode == 13) {
+			  event.preventDefault();
+			  return false;
+			}
+		  });
+		});
+	</script>
+	<script>
+function search(keyword, pageNum, rPP)
+	{
+		var keyw = keyword;
+		var startFrom = pageNum*rPP;
+		var maxR = rPP;
+		
+		
+		$(document).ready($(function(){
+        $.getJSON("https://www.googleapis.com/books/v1/volumes/?q=" + keyw + "&startIndex=" + startFrom + "&maxResults=" + maxR, function (json)
+        {
+			var firstRun = "0";
+			var booksHTML="";
+			var resHTML="";
+			var total=json.totalItems;
+			resHTML+="<a>Results: "+total+"</a>";
+			$("#total").html(resHTML);
+			for (i in json.items)
+			{
+				var booktitle=json.items[i].volumeInfo.title;
+				var bookid=json.items[i].id;
+				var cover="";
+				if (json.items[i].volumeInfo.imageLinks != null)
+					cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
+				
+				booksHTML+='<div>';
+				booksHTML+="<p class='title'><a href='milestone_bookinfo.html?id="+bookid+"'>"+booktitle+"</a></p>";
+				booksHTML+='<p class="paragraph">Author(s): ' + json.items[i].volumeInfo.authors + '</p>';
+				booksHTML+="<img class='image' src='"+cover+"' style='float: left' />";
+				if (json.items[i].volumeInfo.industryIdentifiers != null)
+				{
+					booksHTML+='<p class="paragraph">' + json.items[i].volumeInfo.industryIdentifiers[0].type + ': ' + json.items[i].volumeInfo.industryIdentifiers[0].identifier + '</p>';
+					booksHTML+='<p class="paragraph">' + json.items[i].volumeInfo.industryIdentifiers[1].type + ': ' + json.items[i].volumeInfo.industryIdentifiers[1].identifier + '</p>';
+				}
+				booksHTML+='</div>';
+			}
+			$("#results").html(booksHTML);
+		});
+    }));
+	}
+	</script>
+</head>
 
+<body>
+
+<script>
+    
+</script>
+
+<h1>Book Search</h1>
+
+<div id="mydiv" style="background-color: #00ccff; text-align: left; display: block;">
+	<ol>
+		<a href="milestone_home.html"><b>Home</b></a>
+		<a href="milestone_bookshelf.html">My Bookshelf</a>
+	</ol>	
+</div>
+
+<div id="searchBox" style="float: left; display: block;">
+	<form>
+		<input type="text" id="valueId" name="valueId"/>
+		Page:
+		<select id="page">
+			<option value="0">1</option>
+			<option value="1">2</option>
+			<option value="2">3</option>
+		</select>
+		Results Per Page:
+		<select id="resultPP">
+			<option value="10">10</option>
+			<option value="15">15</option>
+			<option value="30">30</option>
+		</select>
+		<input type="button" value="Search" onclick="search(document.getElementById('valueId').value, document.getElementById('page').value, document.getElementById('resultPP').value)"/>
+		<div id="total">
+		</div>
+	</form>
+</div>
+
+<div id="results" style="display: block;"></div>
+
+</body>
+</html>
