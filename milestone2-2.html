@@ -1,1 +1,62 @@
+<!DOCTYPE html>
 
+<html>
+<head>
+	<title>Milestone 2</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<style>
+		body {
+			background-color: #558C89;
+			font-family: Trebuchet MS;
+		}
+	       body,h1,h2,h3,h4,h5,h6 {font-family: "Trebuchet MS"}
+	       h1,button {font-family: "Open+Sans", Trebuchet MS}
+		
+	       .background{color:#558C89;}
+	       .bookpadding{padding-left: 10px;}
+	       .title{color:#D9853B; font-size: 30px; line-height: 110%; clear: left; border-top-style: solid;}
+	       .subtitle{color:#D9853B; font-size: 20px; border-bottom-style: solid;}
+	       .image{float: left; margin: 0px 10px 40px 10px; }
+	       .headers{}
+	       .paragraphs{line-height: 110%;}
+	</style>
+</head>
+
+<body>
+
+<h1>Book Search</h1>
+
+<div id="mydiv" style="background-color: #00ccff; text-align: left; display: block;">
+	<ol>
+		<a href="milestone_home.html">Home</a>
+		<a href="milestone_bookshelf.html"><b>My Bookshelf</b></a>
+	</ol>	
+</div>
+
+<script>
+    $(document).ready($(function(){
+        $.getJSON("https://www.googleapis.com/books/v1/users/115190708617129362968/bookshelves/1001/volumes", function (json)
+        {
+			var booksHTML="";
+			for (i in json.items)
+			{
+				var booktitle=json.items[i].volumeInfo.title;
+				var bookid=json.items[i].id;
+				
+				booksHTML+="<p class='title'><a href='milestone_bookinfo.html?id="+bookid+"'>"+booktitle+"</a></p>";
+				booksHTML+='<p class="paragraph">Author(s): ' + json.items[i].volumeInfo.authors + '</p>';
+				booksHTML+='<img class="image" src="' + json.items[i].volumeInfo.imageLinks.thumbnail + '>'; 
+                booksHTML+='<p class="paragraph">' + json.items[i].volumeInfo.industryIdentifiers[0].type + ': ' + json.items[i].volumeInfo.industryIdentifiers[0].identifier + '</p>';
+                booksHTML+='<p class="paragraph">' + json.items[i].volumeInfo.industryIdentifiers[1].type + ': ' + json.items[i].volumeInfo.industryIdentifiers[1].identifier + '</p>';
+			}
+			$("#results").html(booksHTML);
+		});
+    }));
+</script>
+
+<div id="results" style="display: block;"></div>
+
+</body>
+
+
+</html>
