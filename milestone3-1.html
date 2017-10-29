@@ -1,1 +1,428 @@
+<!doctype html>
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <title>Milestone 3</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/6738A049-B0E8-5243-81FE-047CFA352F65/main.js" charset="UTF-8"></script><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style type="text/css">
+        #header {
+            background: #184a4a;
+            color: #0000e6;
+            padding: 1px 5%;
+            box-shadow: 0 1px 3px #555;
+            margin: auto;
+            text-align: center;
+            background-color: orange;
+        }
+        
+        #search {
+            padding: 1em;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        #search input {
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        #book {
+            width: 70%;
+            padding: 1em;
+            margin-bottom: 3em;
+            margin: 0 auto;
+            height: 100%;
+            border-bottom-style: dotted;
+            border-bottom-width: 3px;
+        }
+        
+        #bookDetails {
+            width: 80%;
+            padding: 1em;
+            margin-bottom: 3em;
+            margin: 0 auto;
+            height: 100%;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+        
+        #info {
+            float: left;
+            width: 70%;
+            padding: 1em;
+        }
+        
+        #pic {
+            float: right;
+            width: 25%;
+            clear: both;
+            padding: 1em;
+        }
+        
+        #search_button {
+            -webkit-border-radius: 2px;
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            -webkit-user-select: none;
+            background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+            border: 1px solid #aaa;
+            color: #000099;
+            font-size: inherit;
+            margin-bottom: 0px;
+            min-width: 4em;
+            padding: 3px 12px 3px 12px;
+            font-family: gill sans;
+            text-decoration: none;
+        }
+        
+        #search_button:hover {
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            background: #ebebeb -webkit-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
+            border-color: #5cd65c;
+            color: #b3ffff;
+        }
+        
+        #search_button:active {
+            -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+            background: #ebebeb -webkit-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
+            color: #b3ffff;
+        }
+        
+        #details_button {
+            -webkit-border-radius: 2px;
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            -webkit-user-select: none;
+            background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+            border: 2px solid #aaa;
+            color: #b3ffff;
+            font-size: inherit;
+            margin-bottom: 0px;
+            min-width: 4em;
+            padding: 3px 12px 3px 12px;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+        
+        #details_button:hover {
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            background: #ebebeb -webkit-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
+            border-color: #999;
+            color: #222;
+        }
+        
+        #details_button:active {
+            -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+            background: #ebebeb -webkit-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
+            color: #333;
+        }
+        
+        .button {
+            -webkit-border-radius: 2px;
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            -webkit-user-select: none;
+            background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+            border: 1px solid #aaa;
+            color: #444;
+            font-size: inherit;
+            margin-bottom: 0px;
+            min-width: 4em;
+            padding: 3px 12px 3px 12px;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+        
+        .button:hover {
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            background: #ebebeb -webkit-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
+            border-color: #999;
+            color: #222;
+        }
+        
+        .button:active {
+            -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+            background: #ebebeb -webkit-linear-gradient(#f4f4f4, #efefef 40%, #dcdcdc);
+            color: #333;
+        }
+        
+        #pages {
+            padding: 1em;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        #pages ul li {
+            display: inline;
+            list-style-type: none;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h3>Milestone 3 Book Search</h3>
+    </div>
+    <div id="search">
+        <input id="search_val" type="text" name="search" placeholder="Search Here..">
+        <button id="search_button" type="button">Search...</button>
+    </div>
+    <div id="pages">
+        <ul>
+            <li><button class="button" id="0" type="button">1</button></li>
+            <li><button class="button" id="1" type="button">2</button></li>
+            <li><button class="button" id="2" type="button">3</button></li>
+            <li><button class="button" id="3" type="button">4</button></li>
+            <li><button class="button" id="4" type="button">5</button></li>
+            <li><button class="button" id="bookshelf" type="button">Bookshelf</button></li>
+        </ul>
+        <p class="previousPageLink"><a href="milestone3.html">Back to Milestone3</a></p>
+    </div>
+    <div id="wrapper"></div>
+    <script>
+        $(function() {
+
+            $("#search_button").click(function() {
+                var startIndex = "0";
+                var search = $("#search_val").val();
+                var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+                var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+                searchBook(url);
+            });
+
+            $("#0").click(function() {
+                $("#wrapper").empty();
+                var startIndex = "0";
+                var search = $("#search_val").val();
+                var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+                var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+                searchBook(url);
+            });
+
+            $("#1").click(function() {
+                $("#wrapper").empty();
+                var startIndex = "10";
+                var search = $("#search_val").val();
+                var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+                var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+                searchBook(url);
+            });
+
+            $("#2").click(function() {
+                $("#wrapper").empty();
+                var startIndex = "20";
+                var search = $("#search_val").val();
+                var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+                var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+                searchBook(url);
+            });
+
+            $("#3").click(function() {
+                $("#wrapper").empty();
+                var startIndex = "30";
+                var search = $("#search_val").val();
+                var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+                var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+                searchBook(url);
+            });
+
+            $("#4").click(function() {
+                $("#wrapper").empty();
+                var startIndex = "40";
+                var search = $("#search_val").val();
+                var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+                var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+                searchBook(url);
+            });
+
+            $("#bookshelf").click(function(){
+                $("#wrapper").empty();
+                var url = "https://www.googleapis.com/books/v1/users/117186123889639983979/bookshelves/1001/volumes";
+                searchBook(url);
+            });
+
+            function searchBook(url) {
+
+                $.getJSON(url, function(json) {
+
+                    $.each(json.items, function() {
+
+                        try {
+                            var image = this.volumeInfo.imageLinks.smallThumbnail;
+                        } catch (err) {
+                            console.log(err);
+                        }
+
+                        $('<div class="clearfix" id="book"></div>').append(
+                            '<img src="' + image + '" id="pic">' +
+                            '<div id="info">' +
+                            '<h1>' + this.volumeInfo.title + '</h1>' +
+                            '<p>' + this.volumeInfo.description + '</p>' +
+                            '<button class="details_button" id="' + this.id + '" type="button">details</button>' +
+                            '</div>').appendTo("#wrapper");
+
+                    });
+
+                    $(".details_button").click(function() {
+
+                        $("#bookDetails").empty();
+                        getBookID($(this).attr("id"));
+
+                        function getBookID(bookID) {
+                            var url = "https://www.googleapis.com/books/v1/volumes/" + bookID;
+
+                            $.getJSON(url, function(json) {
+
+                                try {
+                                    var image = json.volumeInfo.imageLinks.medium;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var title = json.volumeInfo.title;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var subtitle = json.volumeInfo.subtitle;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var authors = json.volumeInfo.authors;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var publisher = json.volumeInfo.publisher;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var publishedDate = json.volumeInfo.publishedDate;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var pageCount = json.volumeInfo.pageCount;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var description = json.volumeInfo.description;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var averageRating = json.volumeInfo.averageRating;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var ratingsCount = json.volumeInfo.ratingsCount;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var language = json.volumeInfo.language;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var amount = json.saleInfo.listPrice.amount;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var retailAmount = json.saleInfo.retailPrice.amount;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var previewLink = json.volumeInfo.previewLink;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                try {
+                                    var buyLink = json.saleInfo.buyLink;
+                                } catch (err) {
+                                    console.log(err);
+                                }
+
+                                $('<div class="clearfix" id="bookDetails"></div>').append(
+                                    '<h1 id="here" style="text-align: center;">Details</h1>' +
+                                    '<img src="' + image + '" id="pic">' +
+                                    '<div class="clearfix" id="info">' +
+                                    '<p>' + "<b>Title: </b>" + title + '</p>' +
+                                    '<p>' + "<b>Subtitle: </b>" + subtitle + '</p>' +
+                                    '<p>' + "<b>Author: </b>" + authors + '</p>' +
+                                    '<p>' + "<b>Publisher: </b>" + publisher + '</p>' +
+                                    '<p>' + "<b>Date Published: </b>" + publishedDate + '</p>' +
+                                    '<p>' + "<b>Page Count: </b>" + pageCount + '</p>' +
+                                    '<p>' + "<b>Description: </b>" + description + '</p>' +
+                                    '<p>' + "<b>Average Rating: </b>" + averageRating + '</p>' +
+                                    '<p>' + "<b>Rating Count: </b>" + ratingsCount + '</p>' +
+                                    '<p>' + "<b>Language: </b>" + language + '</p>' +
+                                    '<p>' + "<b>List Price: </b>$" + amount + '</p>' +
+                                    '<p>' + "<b>Retail Price: </b>$" + retailAmount + '</p>' +
+                                    '<p>' + "<b>Preview: </b>" + "<a href=" + previewLink + ">http://books.google.com/</a>" + '</p>' +
+                                    '<p>' + "<b>Buy: </b>" + "<a href=" + buyLink + ">http://books.google.com/</a>" + '</p>' +
+                                    '</div>').appendTo("#wrapper");
+
+                            });
+
+                        }
+
+                    });
+
+                });
+
+            }
+/*
+            $("#bookshelf").click(function bookshelf() {
+
+                $("#wrapper").empty();
+
+                var url = "https://www.googleapis.com/books/v1/users/117186123889639983979/bookshelves/1001/volumes";
+                $.getJSON(url, function(json) {
+
+                    $.each(json.items, function() {
+
+                        try {
+                            var image = this.volumeInfo.imageLinks.smallThumbnail;
+                        } catch (err) {
+                            console.log(err);
+                        }
+
+                        $('<div class="clearfix" id="book"></div>').append(
+                            '<img src="' + image + '" id="pic">' +
+                            '<div id="info">' +
+                            '<h1>' + this.volumeInfo.title + '</h1>' 
+
+                    });
+
+                });
+            });
+*/
+        });
+    </script>
+</body>
+
+</html>
